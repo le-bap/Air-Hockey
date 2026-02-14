@@ -49,4 +49,5 @@ public class AIPlayerControl : MonoBehaviour
 
         transform.position = pos;
     }
+
 }

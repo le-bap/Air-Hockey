@@ -3,6 +3,7 @@ using UnityEngine;
 public class BallControl : MonoBehaviour
 {
     private Rigidbody2D rb2d; 
+    public AudioSource source;
 
     // inicializa a bola randomicamente para esquerda ou direita
     void GoBall(){                      
@@ -17,6 +18,7 @@ public class BallControl : MonoBehaviour
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>(); // Inicializa o objeto bola
+        source = GetComponent<AudioSource>(); // inicializa som
         Invoke("GoBall", 2); 
     }
 
@@ -34,6 +36,7 @@ public class BallControl : MonoBehaviour
             vel.y = (rb2d.linearVelocity.y / 2) + (coll.collider.attachedRigidbody.linearVelocity.y / 3);
             rb2d.linearVelocity = vel;
         }
+        source.Play();
     }
 
     void ResetBall(){
